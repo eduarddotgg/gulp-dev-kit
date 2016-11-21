@@ -1,0 +1,25 @@
+{
+  "name": "gulp-dev-kit",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Eduárd Pocstár <admdh.com@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamfrntdv/gulp-dev-kit"
+  },
+  "keywords": [
+    "dev kit",
+    "starter kit",
+    "component driven static website development tool",
+    "static website",
+    "component driven",
+    "component driven development",
+    "nodejs",
+    "expressjs",
+    "gulp",
+    "pug",
+    "posthtml",
+    "postcss"
+  ]
+}
