@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import { argv } from 'yargs';
-import config from './config.js';
+import config from './config.json';
 
 import buildHTML from './gulp/build.html';
 import buildJS from './gulp/build.js';
@@ -12,7 +12,6 @@ import watch from './gulp/watch';
 import clean from './gulp/clean';
 
 let env = argv.env || 'development';
-
 
 buildHTML(gulp, env, config);
 buildJS(gulp, env, config);

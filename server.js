@@ -1,25 +1,40 @@
-const express  = require('express');
+const express = require('express');
+const server = express();
 const browserSync = require('browser-sync');
-const opn     = require("opn");
-const pjson    = require('./package.json');
-const myipui   = require('my-ip-ui');
-
+const opn = require('opn');
+const myipui = require('my-ip-ui');
 const morgan = require('morgan');
+const chalk = require('chalk');
 
-const server   = express();
+const config = require('./config.json');
+const publicDir = config.publicDir;
+const pref = 'http://';
+const host = config.host || 'localhost';
+const port = config.port || 3080;
+const browserSyncPort = config.browserSyncPort || 3010;
 
-const pref     = 'http://';
-const host     = pjson.host || 'localhost';
-const port     = pjson.port || 3080;
-const bsPort   = pjson.bsport || 3010;
-const bsPortUI = pjson.bsportUI || 3091;
-
-// MY IP UI
 server.use(myipui({ port: port }));
 
-server.use(morgan(':status :method :response-time :url'));
-// EXPRESS STATIC
-server.use(express.static('./public'));
+morgan.token('date', () => {
+	return new Date().toString();
+});
+
+server.use(morgan((tokens, req, res) => {
+	let status = tokens.status(req, res);
+	let method = tokens.method(req, res);
+	let url = tokens.url(req, res);
+	let date = tokens.date(req, res);
+	date = '[' + date.match(/(\d\d:\d\d:\d\d)/g) + ']';
+	let message = status + ' ' + method + ' ' + url;
+
+	if (status === '404') {
+		console.log(date + ' ' + chalk.red(message));
+	} else {
+		console.log(date + ' ' + chalk.green(message));
+	}
+}));
+
+server.use(express.static(publicDir));
 
 browserSync({
 	proxy: host + ':' + port,
@@ -29,20 +44,19 @@ browserSync({
 		'dist' + '/*/**/*.js',
 		'dist' + '/**/*.css'
 	],
-	logPrefix: 'kk',
-	port: bsPort,
+	logLevel: 'silent',
+	logPrefix: 'dev-kit',
+	port: browserSyncPort,
 	open: false
 });
 
-
-// START SERVER ON DEFINED PORT
-server.listen(port, function() {
+server.listen(port, () => {
 	console.log('');
 	console.log('');
 	console.log('Server started!');
 	console.log('-------------------------------------------------------');
 	console.log('HTTP Server        : ' + pref + host + ':' + port);
-	console.log('BrowserSync Server : ' + pref + host + ':' + bsPort);
+	console.log('BrowserSync Server : ' + pref + host + ':' + browserSyncPort);
 	console.log('-------------------------------------------------------');
 	console.log('');
 	console.log('');
