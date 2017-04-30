@@ -77,7 +77,7 @@
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "my-ip-ui": "^1.0.7",
-    "opn": "^4.0.2"
+    "opn": "^5.0.0"
   },
   "jspm": {
     "configFile": "jspm.config.js",
