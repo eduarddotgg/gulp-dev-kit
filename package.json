@@ -70,7 +70,7 @@
     "posthtml-w3c": "^0.8.1",
     "run-sequence": "^1.2.2",
     "stylelint": "^7.6.0",
-    "yargs": "^7.1.0"
+    "yargs": "^8.0.1"
   },
   "devDependencies": {
     "browser-sync": "^2.18.2",
