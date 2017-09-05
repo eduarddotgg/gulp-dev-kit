@@ -69,7 +69,7 @@
     "postcss-simple-grid": "^0.7.1",
     "posthtml-w3c": "^0.8.1",
     "run-sequence": "^1.2.2",
-    "stylelint": "^8.1.0",
+    "stylelint": "^8.1.1",
     "yargs": "^6.4.0"
   },
   "devDependencies": {
