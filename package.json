@@ -61,7 +61,7 @@
     "postcss-custom-properties": "^5.0.1",
     "postcss-font-magician": "^1.5.0",
     "postcss-import": "^8.2.0",
-    "postcss-lh": "^1.1.4",
+    "postcss-lh": "^2.0.0",
     "postcss-media-minmax": "^2.1.2",
     "postcss-modular-scale": "^2.5.2",
     "postcss-nested": "^1.0.0",
