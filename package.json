@@ -64,7 +64,7 @@
     "postcss-lh": "^1.1.4",
     "postcss-media-minmax": "^2.1.2",
     "postcss-modular-scale": "^2.5.2",
-    "postcss-nested": "^1.0.0",
+    "postcss-nested": "^3.0.0",
     "postcss-reporter": "^2.0.0",
     "postcss-simple-grid": "^0.7.1",
     "posthtml-w3c": "^0.8.1",
